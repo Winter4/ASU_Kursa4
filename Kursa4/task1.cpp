@@ -20,8 +20,8 @@ void readArray_file(int* A, int N)
 	fclose(file);
 
 	if (i != N - 1)
-		for (i += 1; i < N; i++) 
-			A[i] = -30 + rand() % 100;
+		for (i; i < N; i++) 
+			A[i] = 0;
 }
 
 void print_array(int* A, int N)
