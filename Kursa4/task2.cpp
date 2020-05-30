@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 
-void readArray_file(int* X, int* Y, int N)
+void readDots_file(int* X, int* Y, int N)
 {
 	FILE* file;
 	char name[11];
@@ -19,11 +19,10 @@ void readArray_file(int* X, int* Y, int N)
 	}
 	fclose(file);
 
-	if (i != N - 1)
-		for (i; i < N; i++) {
-			X[i] = -30 + rand() % 100;
-			Y[i] = -30 + rand() % 100;
-		}
+	for (i; i < N; i++) {
+		X[i] = -30 + rand() % 100;
+		Y[i] = -30 + rand() % 100;
+	}
 }
 
 void print_dots(int* X, int* Y, int N, int sqrX[4], int sqrY[4])
@@ -44,7 +43,7 @@ void nearest_dot(int* X, int* Y, int N, int sqrX[4], int sqrY[4], int choice)
 	int dotI, sqrI; // номер точки и вершины квадрата, которые будут в конечном ответе
 	for (int i = 0; i < N; i++) 
 		for (int j = 0; j < 4; j++) {
-			float d = sqrt(powf(X[i] - sqrX[j], 2.0) + powf(Y[i] - sqrY[i], 2.0)); // временный distance
+			float d = sqrt(powf(X[i] - sqrX[j], 2.0) + powf(Y[i] - sqrY[j], 2.0)); // временный distance
 			if (d > distance) {
 				distance = d;
 				dotI = i;
@@ -68,6 +67,7 @@ void nearest_dot(int* X, int* Y, int N, int sqrX[4], int sqrY[4], int choice)
 		fprintf(file, "The dot №%d is the nearest to sqr's top №%d. Distance = %.1f.", dotI + 1, sqrI + 1, distance);
 
 		fclose(file);
+		printf("\nSaved!");
 		break;
 	}
 }
@@ -109,7 +109,7 @@ void task2()
 			case 1:
 				printf("\nКоординаты должны быть записаны парами (X Y). \n");
 				system("pause");
-				readArray_file(X, Y, N); // заполянем массив из файла
+				readDots_file(X, Y, N); // заполянем массив из файла
 				break;
 			case 2:
 				for (int i = 0; i < N; i++) { // рандомим массив

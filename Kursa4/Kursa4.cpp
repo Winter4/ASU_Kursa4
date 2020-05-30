@@ -2,6 +2,7 @@
 #include <iostream>
 #include "task1.h"
 #include "task2.h"
+#include "task3.h"
 
 int main()
 {
@@ -27,7 +28,7 @@ int main()
           task2();
           break;
       case 3:
-       //   task3();
+          task3();
           break;
       case 0:
           return 0;

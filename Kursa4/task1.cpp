@@ -19,9 +19,8 @@ void readArray_file(int* A, int N)
 	}
 	fclose(file);
 
-	if (i != N - 1)
-		for (i; i < N; i++) 
-			A[i] = 0;
+	for (i; i < N; i++) 
+		A[i] = 0;
 }
 
 void print_array(int* A, int N)
@@ -68,6 +67,7 @@ void max_chain(int* A, int N, int choice)
 		fprintf(file, "Max chain = %d, starts from %d element.", chain, i_max + 1);
 
 		fclose(file);
+		printf("\nSaved!");
 		break;
 	}
 }

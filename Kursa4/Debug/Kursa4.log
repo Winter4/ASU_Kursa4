@@ -1,2 +1,7 @@
 ﻿  task1.cpp
-  Kursa4.vcxproj -> C:\Users\Admin\Documents\GitHub\Kursa4\Debug\Kursa4.exe
+  task2.cpp
+C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(46,29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(46,57): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  task3.cpp
+  Создание кода...
+  Kursa4.vcxproj -> C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\Debug\Kursa4.exe
