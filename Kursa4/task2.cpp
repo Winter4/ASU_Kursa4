@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "windows.h"
 #include "conio.h"
@@ -8,7 +8,7 @@ void readDots_file(int* X, int* Y, int N)
 	FILE* file;
 	char name[11];
 	do {
-		printf("\nВведите название файла: ");
+		printf("\nР’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°: ");
 		scanf("%s", name);
 
 		file = fopen(name, "r");
@@ -29,11 +29,11 @@ void readDots_file(int* X, int* Y, int N)
 
 void print_dots(int* X, int* Y, int N, int sqrX[4], int sqrY[4])
 {
-	printf("\nКвадрат: \n");
+	printf("\nРљРІР°РґСЂР°С‚: \n");
 	for (int i = 0; i < 4; i++)
 		printf("(%d, %d)\t", sqrX[i], sqrY[i]);
 
-	printf("\nТочки: ");
+	printf("\nРўРѕС‡РєРё: ");
 	for (int i = 0; i < N; i++)
 		printf("\n%d - (%d, %d)", i + 1, X[i], Y[i]);
 	printf("\n");
@@ -44,7 +44,7 @@ void nearest_dot(int* X, int* Y, int N, int sqrX[4], int sqrY[4], int choice, in
 	float distance = INT_MIN;
 	for (int i = 0; i < N; i++) 
 		for (int j = 0; j < 4; j++) {
-			float d = sqrt(powf(X[i] - sqrX[j], 2.0) + powf(Y[i] - sqrY[j], 2.0)); // временный distance
+			float d = sqrt(powf(X[i] - sqrX[j], 2.0) + powf(Y[i] - sqrY[j], 2.0)); // РІСЂРµРјРµРЅРЅС‹Р№ distance
 			if (d > distance) {
 				distance = d;
 				*dotI = i;
@@ -55,17 +55,17 @@ void nearest_dot(int* X, int* Y, int N, int sqrX[4], int sqrY[4], int choice, in
 	switch (choice)
 	{
 	case 2:
-		printf("\nТочка %d ближайшая к вершине квадрата %d. Расстояние - %.1f.", *dotI + 1, *sqrI + 1, distance);
+		printf("\nРўРѕС‡РєР° %d Р±Р»РёР¶Р°Р№С€Р°СЏ Рє РІРµСЂС€РёРЅРµ РєРІР°РґСЂР°С‚Р° %d. Р Р°СЃСЃС‚РѕСЏРЅРёРµ - %.1f.", *dotI + 1, *sqrI + 1, distance);
 		break;
 	case 1:
 		char name[11];
 
-		printf("\n Введите название файла: ");
+		printf("\n Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°: ");
 		scanf("%s", name);
 
 		FILE* file = fopen(name, "w");
 
-		fprintf(file, "The dot №%d is the nearest to sqr's top №%d. Distance = %.1f.", *dotI + 1, *sqrI + 1, distance);
+		fprintf(file, "The dot в„–%d is the nearest to sqr's top в„–%d. Distance = %.1f.", *dotI + 1, *sqrI + 1, distance);
 
 		fclose(file);
 		printf("\nSaved!");
@@ -92,13 +92,13 @@ void scale(float* mx, float* my, int* X, int* Y, int sqrX[4], int sqrY[4], int N
 
 void draw(float mx, float my, int* X, int* Y, int sqrX[4], int sqrY[4], int dotI, int sqrI, int N)
 {
-	HWND hWnd = GetConsoleWindow(); // системная шляпа
+	HWND hWnd = GetConsoleWindow(); // СЃРёСЃС‚РµРјРЅР°СЏ С€Р»СЏРїР°
 	HDC hDC = GetDC(hWnd);
 
-	HPEN Pen = CreatePen(PS_SOLID, 1, RGB(255, 255, 255)); // ручка 
+	HPEN Pen = CreatePen(PS_SOLID, 1, RGB(255, 255, 255)); // СЂСѓС‡РєР° 
 	SelectObject(hDC, Pen);
 
-	MoveToEx(hDC, 320, 0, 0); // рисуем оси
+	MoveToEx(hDC, 320, 0, 0); // СЂРёСЃСѓРµРј РѕСЃРё
 	LineTo(hDC, 320, 480);
 
 	MoveToEx(hDC, 0, 240, 0);
@@ -107,7 +107,7 @@ void draw(float mx, float my, int* X, int* Y, int sqrX[4], int sqrY[4], int dotI
 	Pen = CreatePen(PS_SOLID, 1, RGB(0, 255, 255));
 	SelectObject(hDC, Pen);
 
-	MoveToEx(hDC, sqrX[0] * mx, sqrY[0] * my, 0); // Рисуем квадрат (без выделения)
+	MoveToEx(hDC, sqrX[0] * mx, sqrY[0] * my, 0); // Р РёСЃСѓРµРј РєРІР°РґСЂР°С‚ (Р±РµР· РІС‹РґРµР»РµРЅРёСЏ)
 	for (int i = 1; i <= 4; i++) {
 		if (i == 4) {
 			LineTo(hDC, sqrX[0] * mx, sqrY[0] * my);
@@ -116,23 +116,23 @@ void draw(float mx, float my, int* X, int* Y, int sqrX[4], int sqrY[4], int dotI
 		LineTo(hDC, sqrX[i] * mx, sqrY[i] * my);
 	}
 
-	for (int i = 0; i < N; i++) // рисуем точки
+	for (int i = 0; i < N; i++) // СЂРёСЃСѓРµРј С‚РѕС‡РєРё
 		Rectangle(hDC, (X[i] + 1) * mx, (Y[i] - 1) * my, (X[i] + 1) * mx, (Y[i] + 1) * my);
 
 	Pen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
 	SelectObject(hDC, Pen);
 
-	Rectangle(hDC, (X[dotI] - 1) * mx, (Y[dotI] - 1) * my, (X[dotI] + 1) * mx, (Y[dotI] + 1) * my); // выделяем точку
-	Rectangle(hDC, (sqrX[sqrI] - 1) * mx, (sqrY[sqrI] - 1) * mx, (sqrX[sqrI] + 1) * mx, (sqrY[sqrI] + 1) * mx); // выделяем вершину квадрата
+	Rectangle(hDC, (X[dotI] - 1) * mx, (Y[dotI] - 1) * my, (X[dotI] + 1) * mx, (Y[dotI] + 1) * my); // РІС‹РґРµР»СЏРµРј С‚РѕС‡РєСѓ
+	Rectangle(hDC, (sqrX[sqrI] - 1) * mx, (sqrY[sqrI] - 1) * mx, (sqrX[sqrI] + 1) * mx, (sqrY[sqrI] + 1) * mx); // РІС‹РґРµР»СЏРµРј РІРµСЂС€РёРЅСѓ РєРІР°РґСЂР°С‚Р°
 }
 
 void task2()
 {
 
-	printf("\n Заданы координаты квадрата и координаты N точек.\n Определить какая из точек, к какой вершине квадрата лежит ближе всего. \n");
+	printf("\n Р—Р°РґР°РЅС‹ РєРѕРѕСЂРґРёРЅР°С‚С‹ РєРІР°РґСЂР°С‚Р° Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ N С‚РѕС‡РµРє.\n РћРїСЂРµРґРµР»РёС‚СЊ РєР°РєР°СЏ РёР· С‚РѕС‡РµРє, Рє РєР°РєРѕР№ РІРµСЂС€РёРЅРµ РєРІР°РґСЂР°С‚Р° Р»РµР¶РёС‚ Р±Р»РёР¶Рµ РІСЃРµРіРѕ. \n");
 	
 	do {
-		printf(" 1 - Данные о задаче \n 2 - Решение задачи \n 0 - Назад \nВыбор: ");
+		printf(" 1 - Р”Р°РЅРЅС‹Рµ Рѕ Р·Р°РґР°С‡Рµ \n 2 - Р РµС€РµРЅРёРµ Р·Р°РґР°С‡Рё \n 0 - РќР°Р·Р°Рґ \nР’С‹Р±РѕСЂ: ");
 
 		int choice;
 		scanf("%d", &choice);
@@ -142,18 +142,18 @@ void task2()
 			return;
 			break;
 		case 1:
-			printf("\n Заданы координаты квадрата и координаты N точек.\n Определить какая из точек, к какой вершине квадрата лежит ближе всего. \n");
+			printf("\n Р—Р°РґР°РЅС‹ РєРѕРѕСЂРґРёРЅР°С‚С‹ РєРІР°РґСЂР°С‚Р° Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ N С‚РѕС‡РµРє.\n РћРїСЂРµРґРµР»РёС‚СЊ РєР°РєР°СЏ РёР· С‚РѕС‡РµРє, Рє РєР°РєРѕР№ РІРµСЂС€РёРЅРµ РєРІР°РґСЂР°С‚Р° Р»РµР¶РёС‚ Р±Р»РёР¶Рµ РІСЃРµРіРѕ. \n");
 			break;
 		case 2:
 			int N;
-			printf("\nВведите N: ");
+			printf("\nР’РІРµРґРёС‚Рµ N: ");
 			scanf("%d", &N);
 
-			int* X = new int[N]; // массивы точек
+			int* X = new int[N]; // РјР°СЃСЃРёРІС‹ С‚РѕС‡РµРє
 			int* Y = new int[N];
-			int sqrX[4] = { 3, 3, 6, 6 }, sqrY[4] = { 1, 4, 4, 1 }; // массивы вершин квадрата
+			int sqrX[4] = { 3, 3, 6, 6 }, sqrY[4] = { 1, 4, 4, 1 }; // РјР°СЃСЃРёРІС‹ РІРµСЂС€РёРЅ РєРІР°РґСЂР°С‚Р°
 
-			printf("\n 1 - Считать координаты из файла \n 2 - Сгенерировать случайные значения \n 3 - Ввести значения с клавиатуры \nВыбор: ");
+			printf("\n 1 - РЎС‡РёС‚Р°С‚СЊ РєРѕРѕСЂРґРёРЅР°С‚С‹ РёР· С„Р°Р№Р»Р° \n 2 - РЎРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ СЃР»СѓС‡Р°Р№РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ \n 3 - Р’РІРµСЃС‚Рё Р·РЅР°С‡РµРЅРёСЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹ \nР’С‹Р±РѕСЂ: ");
 
 			int choice_2_2;
 			scanf("%d", &choice_2_2);
@@ -161,18 +161,18 @@ void task2()
 			switch (choice_2_2)
 			{
 			case 1:
-				printf("\nКоординаты должны быть записаны парами (X Y). \n");
+				printf("\nРљРѕРѕСЂРґРёРЅР°С‚С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ Р·Р°РїРёСЃР°РЅС‹ РїР°СЂР°РјРё (X Y). \n");
 				system("pause");
-				readDots_file(X, Y, N); // заполянем массив из файла
+				readDots_file(X, Y, N); // Р·Р°РїРѕР»СЏРЅРµРј РјР°СЃСЃРёРІ РёР· С„Р°Р№Р»Р°
 				break;
 			case 2:
-				for (int i = 0; i < N; i++) { // рандомим массив
+				for (int i = 0; i < N; i++) { // СЂР°РЅРґРѕРјРёРј РјР°СЃСЃРёРІ
 					X[i] = -10 + rand() % 10;
 					Y[i] = -10 + rand() % 10;
 				}
 				break;
 			case 3:
-				printf("\nВведите массив \n"); // вводим массив ручками
+				printf("\nР’РІРµРґРёС‚Рµ РјР°СЃСЃРёРІ \n"); // РІРІРѕРґРёРј РјР°СЃСЃРёРІ СЂСѓС‡РєР°РјРё
 				for (int i = 0; i < N; i++) {
 					printf(" %d - X Y: ", i + 1);
 					scanf("%d%d", &X[i], &Y[i]);
@@ -181,22 +181,22 @@ void task2()
 			}
 			print_dots(X, Y, N, sqrX, sqrY);
 
-			printf("\n 1 - Вывести результат в файл \n 2 - Вывести результат в консоль \nВыбор: ");
+			printf("\n 1 - Р’С‹РІРµСЃС‚Рё СЂРµР·СѓР»СЊС‚Р°С‚ РІ С„Р°Р№Р» \n 2 - Р’С‹РІРµСЃС‚Рё СЂРµР·СѓР»СЊС‚Р°С‚ РІ РєРѕРЅСЃРѕР»СЊ \nР’С‹Р±РѕСЂ: ");
 			int choice_2_3;
 			scanf("%d", &choice_2_3);
 
-			int dotI, sqrI; // номер точки и вершины квадрата, которые будут в конечном ответе
+			int dotI, sqrI; // РЅРѕРјРµСЂ С‚РѕС‡РєРё Рё РІРµСЂС€РёРЅС‹ РєРІР°РґСЂР°С‚Р°, РєРѕС‚РѕСЂС‹Рµ Р±СѓРґСѓС‚ РІ РєРѕРЅРµС‡РЅРѕРј РѕС‚РІРµС‚Рµ
 			nearest_dot(X, Y, N, sqrX, sqrY, choice_2_3, &dotI, &sqrI);
 
 			printf("\n");
 			system("pause");
 			system("cls");
 
-			float mx, my; // масштаб по икс и игрк
+			float mx, my; // РјР°СЃС€С‚Р°Р± РїРѕ РёРєСЃ Рё РёРіСЂРє
 			scale(&mx, &my, X, Y, sqrX, sqrY, N);
 			draw(mx, my, X, Y, sqrX, sqrY, dotI, sqrI, N);
 
-			delete[] X; // очищаем память
+			delete[] X; // РѕС‡РёС‰Р°РµРј РїР°РјСЏС‚СЊ
 			delete[] Y;
 
 			system("pause");
