@@ -1,1 +1,1 @@
-Max chain = 4, starts from 7 element.
+Max chain = 3, starts from 1 element.

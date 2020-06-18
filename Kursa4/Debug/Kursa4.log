@@ -1,20 +1,2 @@
-﻿  task2.cpp
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(47,29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(47,57): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(89,12): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(90,12): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(110,38): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(110,24): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(113,38): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(113,24): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(116,37): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(116,23): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(120,80): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(120,63): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(120,46): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(120,29): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(126,103): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(126,80): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(126,57): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
-C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\task2.cpp(126,34): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+﻿  task3.cpp
   Kursa4.vcxproj -> C:\Users\Admin\Documents\GitHub\ASU_Kursa4\Kursa4\Debug\Kursa4.exe
